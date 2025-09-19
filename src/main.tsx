@@ -9,7 +9,7 @@ import "./index.css";
 
 const router = createBrowserRouter([
   {
-    path: "/deployment-automation/",
+    path: "/",
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
