@@ -7,17 +7,22 @@ import Home from "./pages/home.tsx";
 import { StrictMode } from "react";
 import "./index.css";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: "about", element: <About /> },
+        { path: "contact", element: <Contact /> },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <Layout />,
-    children: [
-      { index: true, element: <Home /> },
-      { path: "about", element: <About /> },
-      { path: "contact", element: <Contact /> },
-    ],
-  },
-]);
+    basename: "/deployment-automation", 
+  }
+);
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RouterProvider router={router} />
